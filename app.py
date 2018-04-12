@@ -39,9 +39,9 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if event.message.text == "Hi"
-        message = TextSendMessage("How are you")
+        message = TextSendMessage(text="How are you")
     else
-        message = TextSendMessage("received undefine message")
+        message = TextSendMessage(text="received undefine message")
     line_bot_api.reply_message(
         event.reply_token,
         message)
