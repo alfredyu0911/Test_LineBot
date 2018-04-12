@@ -40,11 +40,10 @@ def callback():
 def handle_message(event):
     if event.message.text == "Hi"
         message = TextSendMessage(text='How are you')
+        line_bot_api.reply_message(event.reply_token,message)
     else
         message = TextSendMessage(text='received undefine message')
-    line_bot_api.reply_message(
-        event.reply_token,
-        message)
+        line_bot_api.reply_message(event.reply_token,message)
 
 import os
 if __name__ == "__main__":
