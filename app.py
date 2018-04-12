@@ -17,6 +17,10 @@ line_bot_api = LineBotApi('VPE+CQA/7xT/Gw7+AuQglKL7lHNyC+64k30AnkYlU///83YpPvE6v
 # Channel Secret
 handler = WebhookHandler('e4013cf04ebc446549c202098e9562a8')
 
+@app.route('/')
+def index():
+    return "<p>Hello World!</p>"
+
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -38,12 +42,12 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    if event.message.text == "Hi"
-        message = TextSendMessage(text='How are you')
-        line_bot_api.reply_message(event.reply_token,message)
-    else
-        message = TextSendMessage(text='received undefine message')
-        line_bot_api.reply_message(event.reply_token,message)
+    if event.message.text==u"Hi":
+        line_bot_api.reply_message(event.reply_token,
+                                   TextSendMessage(u"How are you"))
+    else:
+        line_bot_api.reply_message(event.reply_token,
+                                   TextSendMessage(u"received undefine message"))
 
 import os
 if __name__ == "__main__":
