@@ -47,7 +47,7 @@ def handle_message(event):
                                    TextSendMessage(u"How are you"))
     else:
         line_bot_api.reply_message(event.reply_token,
-                                   TextSendMessage(u"received undefine message"))
+                                   TextSendMessage(u"i'm sorry that i can't recognize this message"))
 
 import os
 if __name__ == "__main__":
